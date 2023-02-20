@@ -109,13 +109,16 @@ public:
     }
 
     void parseName(String name){
+        
+        while(name.length()<6){
+            name = "."+name;
+            // Serial.println(name);
+        }
+        name[0]='.';
         if(name.length()>6){
             name = "" + name[0] + name[1] + name[2] + name[3] + name[4] + name[5];
         }
-        while(name.length()<6){
-            name = "."+name;
-        }
-
+        
         setAddress((uint8_t * )name.c_str());
 
     }
